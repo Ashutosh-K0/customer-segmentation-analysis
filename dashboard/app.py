@@ -74,7 +74,7 @@ div[data-testid="stAlert"] {
 # LOAD DATASET
 # ---------------------------------------------------
 
-df = pd.read_csv("../data/Mall_Customers.csv")
+df = pd.read_csv("data/Mall_Customers.csv")
 
 # Rename columns
 df.columns = [
