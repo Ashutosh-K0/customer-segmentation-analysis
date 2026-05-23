@@ -181,7 +181,7 @@ streamlit run dashboard/app.py
 
 # Author
 
-Ashutosh
+Ashutosh Kumar
 
 ---
 
