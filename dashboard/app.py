@@ -254,17 +254,37 @@ st.write("")
 # K-MEANS CLUSTERING
 # ---------------------------------------------------
 
+# K-Means Clustering
+
 st.subheader("Customer Segments using K-Means Clustering")
 
 X = filtered_df[["annual_income", "spending_score"]]
 
-kmeans = KMeans(
-    n_clusters=5,
-    init="k-means++",
-    random_state=42
-)
+if len(filtered_df) >= 5:
 
-filtered_df["cluster"] = kmeans.fit_predict(X)
+    kmeans = KMeans(
+        n_clusters=5,
+        init="k-means++",
+        random_state=42
+    )
+
+    filtered_df["cluster"] = kmeans.fit_predict(X)
+
+    # Cluster Names
+    cluster_names = {
+        0: "Standard Customers",
+        1: "Premium Customers",
+        2: "Impulsive Customers",
+        3: "Careful Customers",
+        4: "Budget Customers"
+    }
+
+    filtered_df["cluster_name"] = filtered_df["cluster"].map(cluster_names)
+
+    # Visualization code here...
+
+else:
+    st.warning("Not enough data points for clustering.")
 
 # Cluster Names
 cluster_names = {
